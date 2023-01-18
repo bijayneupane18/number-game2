@@ -1,12 +1,17 @@
 .screen_grid{
+    position: relative;
     display: grid;
-    column-gap:300px;
-    row-gap: 50px;
+    column-gap:100px;
+    row-gap: 20px;
     grid-template-columns: auto auto auto;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
     border: 1px solid black;
+    width: fit-content;
+    padding: 20px;
+    top: 100px;
+    left: 380px;
 }
 
 .grid_numbers{
@@ -16,4 +21,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.random_number{
+    position: absolute;
+    border: 1px solid black;
+    height: 50px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20px;
+    left: 615px;
 }
