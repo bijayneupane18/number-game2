@@ -7,17 +7,17 @@ const Grid = () => {
   const [check, setCheck] = useState(false);
   const [number, setNumber] = useState(null);
   const [count, setCount] = useState(0);
-  // const [over, setOver] = useState(true);
+  const [disable, setDisable] = useState(false);
 
   const array = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
   const compare = () => {
     if (randomNumber === number) {
       console.log("matched");
-      return "Matched";
+      return "Winner";
     } else {
       console.log("unmatched");
-      return "Unmatched";
+      return "wrong";
     }
   };
 
@@ -27,7 +27,7 @@ const Grid = () => {
       return "game over";
     } else {
       console.log("continue");
-      return "continue";
+      // return "continue";
     }
   };
 
@@ -36,16 +36,20 @@ const Grid = () => {
       <div className="random_number">{randomNumber}</div>
       <div className="screen_grid">
         {array.map((num) => (
-          <div
+          <button
+            key={num}
             className="grid_numbers"
             onClick={() => {
               setCheck(true);
               setNumber(num);
-              setCount(count + 1);
+              setCount((c) => c + 1);
+              setDisable(() => (randomNumber === num ? true : false));
+              console.log(num);
             }}
+            disabled={disable}
           >
             {num}
-          </div>
+          </button>
         ))}
       </div>
       {endOfChance()}
